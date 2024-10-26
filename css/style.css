@@ -1,0 +1,46 @@
+/* Google font */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+
+.loader {
+  display: flex;
+  align-items: center;
+}
+
+.bar {
+  display: inline-block;
+  width: 12px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  height: 47px;
+  margin: 0 5px;
+  animation-delay: 0.25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes scale-up4 {
+  20% {
+    background-color: #51d1f1;
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
+}
+
+#openadopted::backdrop {
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.611);
+}
+#openDetails::backdrop {
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.612);
+}

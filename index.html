@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peddy | Pets of Adoption</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        lato: "Lato",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="font-lato">
+    <header>
+        <nav class="w-11/12 lg:w-10/12 mx-auto flex items-center justify-between py-6 relative">
+            <div class="flex items-center gap-2">
+                <img src="./images/logo.webp" alt="logo" />
+                <h4 class="font-bold text-3xl">Peddy</h4>
+            </div>
+            <div class="hidden sm:block">
+                <ul class="flex items-center gap-3">
+                    <li class="font-bold text-gray-500 hover:text-gray-600">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="font-bold text-gray-500 hover:text-gray-600">
+                        <a href="#">Shop</a>
+                    </li>
+                    <li class="font-bold text-gray-500 hover:text-gray-600">
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-3">
+                <div
+                    class="border w-12 h-12 rounded-full flex items-center justify-center hover:cursor-pointer shadow-md">
+                    <img src="./images/user.svg" alt="user" />
+                </div>
+                <!-- Mobile Menu -->
+                <div id="menu-bar"
+                    class="border w-12 h-12 rounded-full sm:hidden flex items-center justify-center hover:cursor-pointer shadow-md">
+                    <img src="./images/menu.svg" alt="menu-bar" />
+                </div>
+            </div>
+            <div id="menu-list" class="hidden absolute top-24 right-0 z-20 w-72 bg-cyan-600 py-4 px-2 rounded-lg">
+                <ul class="text-slate-50 font-bold text-center space-y-1">
+                    <li class="py-2 hover:bg-cyan-500 rounded-lg cursor-pointer">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="py-2 hover:bg-cyan-500 rounded-lg cursor-pointer">
+                        <a href="#">Shop</a>
+                    </li>
+                    <li class="py-2 hover:bg-cyan-500 rounded-lg cursor-pointer">
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Hero Banner -->
+        <div class="w-9/12 mx-auto text-center space-y-4 py-10">
+            <h3 class="text-xl font-semibold flex items-center justify-center text-gray-500 gap-4">
+                <span>Bringing Families Together</span>
+                <img src="./images/fire.png" alt="fire" class="w-6" />
+            </h3>
+            <h1 class="font-bold text-3xl md:text-4xl lg:text-6xl capitalize">
+                Your path to Adoption <br />
+                starts here
+            </h1>
+            <p>
+                It is a long established fact that a reader will be distracted by the
+                readable content of a page when <br />
+                looking at its layout. The point of using Lorem Ipsum is that it has
+                a.
+            </p>
+            <div class="">
+                <a href="#viewDown">
+                    <button class="py-2 px-5 rounded-lg text-slate-50 font-bold bg-cyan-600 hover:bg-cyan-500">
+                        View More
+                    </button>
+                </a>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="flex items-center justify-center">
+                <img src="./images/pet.webp" alt="hero-image" />
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="viewDown" class="w-11/12 lg:w-10/12 mx-auto py-10">
+            <div class="text-center space-y-3">
+                <h2 class="capitalize font-bold text-3xl md:text-4xl">
+                    adopt your best friend
+                </h2>
+                <p>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of a page when <br />
+                    looking at its layout. The point of using Lorem Ipsum is that it has
+                    a.
+                </p>
+            </div>
+            <!-- Dynamic Category Button -->
+            <div id="category-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-7"></div>
+            <!-- Sort Button -->
+            <div class="flex flex-col md:flex-row gap-3 items-center justify-between py-5">
+                <h3 class="font-bold text-3xl">Best Deal For you</h3>
+                <button id="sort-btn" class="bg-cyan-600 hover:bg-cyan-500 text-slate-50 font-bold py-3 px-5 rounded-lg">
+                    Sort by Price
+                </button>
+            </div>
+        </section>
+        <!-- Loader -->
+        <section id="pet-card-container"
+            class="w-11/12 lg:w-10/12 mx-auto pb-5 flex justify-between gap-4 flex-col-reverse xl:flex-row">
+            <!-- Loader -->
+            <div class="flex items-center justify-center">
+                <div id="loaderPet" class="loader hidden">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+
+            <div class="flex w-full xl:w-9/12 items-center justify-between">
+                <!-- Card Container -->
+                <div id="pets-container" class="w-full grid grid-cols-1 sm:grid-cols-2 gap-y-5 xl:grid-cols-3 gap-3">
+                </div>
+            </div>
+
+            <!-- Right side photo gallery -->
+            <div class="w-full xl:w-[300px] border border-gray-400 rounded-lg px-5 py-2 h-min">
+                <h4 id="gallery-heading" class="font-bold text-xl capitalize text-center">
+                    Photo-gallery
+                </h4>
+                <div id="photo-gallery" class="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-2 gap-4"></div>
+            </div>
+        </section>
+        <dialog id="openadopted" class="border-2 rounded-xl sm:w-9/12 md:w-8/12 lg:w-6/12 mx-auto">
+            <div class="flex items-center justify-center flex-col p-6 rounded-lg">
+                <img src="./images/congrates.gif" class="w-28" alt="congratulation" />
+                <h3 class="font-bold text-3xl mt-3">Congrates</h3>
+                <p class="font-bold text-lg my-2">
+                    Adoption Process is Start For your Pet
+                </p>
+                <div id="counting" class="font-bold text-2xl"></div>
+            </div>
+        </dialog>
+        <dialog id="openDetails" class="border-2 rounded-xl w-11/12 sm:w-10/12 lg:w-8/12 mx-auto"></dialog>
+    </main>
+
+    <footer class="bg-stone-900 text-slate-100 py-14 mt-10">
+        <div class="w-11/12 lg:w-10/12 mx-auto flex flex-col lg:flex-row gap-7 justify-between">
+            <div class="space-y-2">
+                <div class="flex items-center gap-2 mb-3">
+                    <img src="./images/logo.webp" alt="logo" />
+                    <h4 class="font-bold text-3xl">Peddy</h4>
+                </div>
+                <p>Location: av. Washington 165 NY. CA</p>
+                <p>54003</p>
+                <p>Phone: +9103862043</p>
+                <p>Email: info@gmail.com</p>
+                <p>Opening hours: 9.00 AM - 5.00 PM</p>
+                <div class="flex items-center gap-3 pt-2">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img class="text-slate-50" src="./images/facebook.svg" alt="facebook" />
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img class="text-slate-50" src="./images/twitter.svg" alt="twitter" />
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img class="text-slate-50" src="./images/youtube.svg" alt="youtub" />
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img class="text-slate-50" src="./images/instagram.svg" alt="instagram" />
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Useful Links</h3>
+                <ul class="space-y-2">
+                    <li><a class="hover:border-b" href="#">Home</a></li>
+                    <li><a class="hover:border-b" href="#">About us</a></li>
+                    <li><a class="hover:border-b" href="#">Animals</a></li>
+                    <li><a class="hover:border-b" href="#">Foundation</a></li>
+                    <li><a class="hover:border-b" href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-xl font-bold mb-4">Drop a messege</h3>
+                <div>
+                    <input type="text" placeholder="Enter your email"
+                        class="bg-gray-600 focus:outline-none rounded-lg w-56 p-2 mt-1" />
+                </div>
+                <div>
+                    <button class="text-slate-50 font-bold bg-cyan-600 hover:bg-cyan-500 rounded-lg py-2 px-20 mt-1">
+                        Subscibe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
